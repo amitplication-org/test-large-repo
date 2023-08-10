@@ -1,0 +1,16 @@
+import * as React from "react";
+import { Show, SimpleShowLayout, ShowProps, TextField } from "react-admin";
+
+export const LuApplicationCohortShow = (
+  props: ShowProps
+): React.ReactElement => {
+  return (
+    <Show {...props}>
+      <SimpleShowLayout>
+        <TextField label="Application Id" source="applicationId" />
+        <TextField label="Cohort Id" source="cohortId" />
+        <TextField label="Id" source="id" />
+      </SimpleShowLayout>
+    </Show>
+  );
+};
