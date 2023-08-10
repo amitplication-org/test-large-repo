@@ -1,0 +1,17 @@
+import * as common from "@nestjs/common";
+import * as swagger from "@nestjs/swagger";
+import * as nestAccessControl from "nest-access-control";
+import { ApplicationreqService } from "./applicationreq.service";
+import { ApplicationreqControllerBase } from "./base/applicationreq.controller.base";
+
+@swagger.ApiTags("applicationreqs")
+@common.Controller("applicationreqs")
+export class ApplicationreqController extends ApplicationreqControllerBase {
+  constructor(
+    protected readonly service: ApplicationreqService,
+    @nestAccessControl.InjectRolesBuilder()
+    protected readonly rolesBuilder: nestAccessControl.RolesBuilder
+  ) {
+    super(service, rolesBuilder);
+  }
+}

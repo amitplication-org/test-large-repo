@@ -1,0 +1,17 @@
+import * as common from "@nestjs/common";
+import * as swagger from "@nestjs/swagger";
+import * as nestAccessControl from "nest-access-control";
+import { LuProgramsDepartmentService } from "./luProgramsDepartment.service";
+import { LuProgramsDepartmentControllerBase } from "./base/luProgramsDepartment.controller.base";
+
+@swagger.ApiTags("luProgramsDepartments")
+@common.Controller("luProgramsDepartments")
+export class LuProgramsDepartmentController extends LuProgramsDepartmentControllerBase {
+  constructor(
+    protected readonly service: LuProgramsDepartmentService,
+    @nestAccessControl.InjectRolesBuilder()
+    protected readonly rolesBuilder: nestAccessControl.RolesBuilder
+  ) {
+    super(service, rolesBuilder);
+  }
+}
